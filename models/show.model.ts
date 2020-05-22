@@ -1,13 +1,48 @@
 const mongoose = require('mongoose');
 
-const ShowSchema = mongoose.Schema({
-    title: String,
-    description: String,
-    genre: String,
-    image:  Buffer,
-    releaseDate: Date,
-    numberOfEpisodes: Number,
-    isDubbed: Boolean
+const Schema = mongoose.Schema
+
+const ShowSchema = new Schema ({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    genre: {
+        type: String,
+        required: true
+    },
+    image:  {
+        type: String,
+        required: true
+    },
+    trailer:  {
+        type: String,
+        required: true
+    },
+    releaseDate: {
+        type: Date,
+        required: true
+    },
+    numberOfEpisodes: {
+        type: Number,
+        required: true
+    },
+    numberOfMovies: {
+        type: Number,
+        required: true
+    },
+    isDubbed: {
+        type: Boolean,
+        required: true
+    },
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 
 });
 
