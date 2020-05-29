@@ -1,7 +1,21 @@
 {
     "shows":[
-        {"title":"Dragon Ball"
-
+        {"title":"Dragon Ball",
+        "author": "Akira Toriyama",
+        "description": "Son Gokû, a fighter with a monkey tail, goes on a quest with an assortment of odd characters in search of the Dragon Balls, a set of crystals that can give its bearer anything they desire.",
+        "genre" : ["Action", "Adventure"],
+        "image": "",
+        "backgroundImage": "",
+        "trailer": "",
+        "releaseDate": "",
+        "numberOfEpisodes": 153, 
+        "movieNames": ["Dragon Ball: Curse of the Blood Rubies", "Dragon Ball: Sleeping Princess in Devil's Castle", "Dragon Ball: Mystical Adventure", "Dragon Ball: The Path to Power", "Dragonball Evolution"],
+        "isDubbed": true,
+        "mangaChapters": 325,
+        "relatedSeries": ["Dragon Ball Z", "Dragon Ball GT", "Dragon Ball Super"],
+        "hasEnded": true           
         }
     ]
 }
+
+

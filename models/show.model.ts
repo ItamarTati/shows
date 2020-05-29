@@ -7,15 +7,23 @@ const ShowSchema = new Schema ({
         type: String,
         required: true
     },
+    author: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true
     },
     genre: {
-        type: String,
+        type: Array,
         required: true
     },
     image:  {
+        type: String,
+        required: true
+    },
+    backgroundImage:  {
         type: String,
         required: true
     },
@@ -31,18 +39,22 @@ const ShowSchema = new Schema ({
         type: Number,
         required: true
     },
-    numberOfMovies: {
-        type: Number,
+    movieNames: {
+        type: Array,
         required: true
     },
     isDubbed: {
         type: Boolean,
         required: true
     },
-    creator: {
-        type: Schema.Types.ObjectId,
-        ref: 'Show'
+    mangaChapters: {
+        type: Number,
+        required: true
     },
+    hasEnded:{
+        type: Boolean, 
+        required: true 
+    }
 
 });
 

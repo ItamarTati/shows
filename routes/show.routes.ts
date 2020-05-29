@@ -1,8 +1,14 @@
-module.exports = (app) => {
-    const shows = require('../controllers/show.controller.ts');
+const express = require('express')
+const router = express.Router()
+const showController = require('../controllers/show.controller.ts');
 
+router.get('/', showController.findAll);
 
-    app.get('/shows', shows.findAll);
+router.post('/', showController.create);
 
+router.get('/:id', showController.findOne);
 
-}
+router.put('/:id', showController.update);
+
+router.delete('/:id', showController.delete);
+module.exports = router
