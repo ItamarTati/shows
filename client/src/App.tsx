@@ -1,42 +1,20 @@
-import React, {useContext} from 'react';
-import './App.css';
-
-const themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
-  }
-};
-
-const ThemeContext = React.createContext(themes.dark);
-
-function App() {
-  return (
-    <ThemeContext.Provider value={themes.light}>
-      <Toolbar />
-    </ThemeContext.Provider>
-  );
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+const App: React.FC = () => {
+    const [shows, setShows] = useState<any>([] as any);
+    const url = "/shows"; 
+    useEffect(() => {
+            fetch(url) 
+            .then(response => response.json())
+            .then(shows => console.log(shows))
+            .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+    }, []);
+    
+    return (
+        <div>
+        </div>
+    );
 }
 
-function Toolbar(props: object ) {
-  return (
-    <div>
-      <ThemedButton />
-    </div>
-  );
-}
-
-function ThemedButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
-    </button>
-  );
-}
 
 export default App;

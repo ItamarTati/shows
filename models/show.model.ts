@@ -1,3 +1,4 @@
+// @ts-ignore
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema
@@ -19,7 +20,7 @@ const ShowSchema = new Schema ({
         type: Array,
         required: true
     },
-    image:  {
+    coverImage:  {
         type: String,
         required: true
     },

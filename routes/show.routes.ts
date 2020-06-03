@@ -1,3 +1,4 @@
+// @ts-ignore
 const express = require('express')
 const router = express.Router()
 const showController = require('../controllers/show.controller.ts');
