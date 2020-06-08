@@ -1,20 +1,26 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import React from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import './App.css';
+import Home from './pages/home/Home';
+import Details from './pages//details/Details';
+import NotFound from './pages/not-found/NotFound';
+
+
+
+
+
 const App: React.FC = () => {
-    const [shows, setShows] = useState<any>([] as any);
-    const url = "/shows"; 
-    useEffect(() => {
-            fetch(url) 
-            .then(response => response.json())
-            .then(shows => console.log(shows))
-            .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
-    }, []);
-    
     return (
-        <div>
+        <div className='App'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/not-found' component={NotFound} />
+            <Route path='/:_id' component={Details} />
+          </Switch>
         </div>
-    );
-}
+      );
+    }
+    
+  
 
-
-export default App;
+export default withRouter(App);

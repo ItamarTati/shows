@@ -35,6 +35,7 @@ exports.create = (req, res) => {
         isDubbed: req.body.isDubbed,
         mangaChapters: req.body.mangaChapters,
         hasEnded: req.body.hasEnded,
+
     });
     show.save()
       .then(data => {

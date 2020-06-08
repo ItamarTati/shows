@@ -55,7 +55,8 @@ const ShowSchema = new Schema ({
     hasEnded:{
         type: Boolean, 
         required: true 
-    }
+    }, 
+
 
 });
 

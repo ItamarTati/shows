@@ -1,0 +1,10 @@
+.Cover img {
+    height: 100%;
+    width: 415px;
+    margin: 1px;
+    transition: transform .2s;
+}
+
+.Cover img:hover {
+    transform: scale(1.1); 
+  }
