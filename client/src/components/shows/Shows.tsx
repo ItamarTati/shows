@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Cover from '../cover/Cover'
 import Loading from '../../common/loading/Loading'
+import classes from './Shows.module.css';
+
 
 
 export default () => {
@@ -14,8 +16,8 @@ export default () => {
     }, []);
     
     return (
-            <div id='shows'>
-                <h1>Animes & Manga (アニメやマンガ)</h1>
+            <div id='shows' className={classes.Shows}>
+                <h1 className={classes.Title}>Animes & Manga (アニメやマンガ)</h1>
                 {
                 shows.length > 0 ?
                     shows.map(show => {

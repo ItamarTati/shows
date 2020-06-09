@@ -46,12 +46,21 @@ export default function Details() {
                         }}>
                 <div className={classes.Content}>
                   <h1>{show.title} by {show.author}</h1>
-                  <p className={classes.Subtitle}><strong>{show.description}</strong> <br />Genre: {show.genre}</p>
+                  <p className={classes.Subtitle}><strong>{show.description}</strong></p>
                   <div className={classes.Video}>
                     <video controls poster={show.backgroundImage}>
                     <source src={show.trailer} type="video/mp4"   />
                     </video>
                 </div>
+                    <li style={{
+                            'textAlign': 'left',
+                            'marginLeft': '7.5%',
+                            'listStyleType': 'none'
+                        }}>
+                            <ul>Genres: {show.genre.join(', ')}</ul>
+                            <ul>Number of Episodes: {show.numberOfEpisodes}</ul> 
+                            <ul>Number of Manga Chapters: {show.mangaChapters}</ul>                         
+                        </li>
                 
                   <p><a className={classes.Button} onClick={() => history.goBack()} >Return to Previous Page</a></p>
 
