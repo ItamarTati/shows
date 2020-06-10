@@ -16,9 +16,16 @@ export default function Details() {
             .then(response => response.json())
             .then(show => setShow(show))
     }, []);
+    
+    let today = new Date();
+    let showDay = new Date(show.releaseDate);
+    //@ts-ignore
+    let date= today.getFullYear();
+    //@ts-ignore
+    let showDate= showDay.getFullYear();
 
-        // return !show._id ? <Loading /> : <div>James</div>;
-            return show._id ?
+
+        return show._id ?
                 <DetailsContent/> :
                 <Loading />;
         
@@ -52,15 +59,18 @@ export default function Details() {
                     <source src={show.trailer} type="video/mp4"   />
                     </video>
                 </div>
-                    <li style={{
+                    <ul style={{
                             'textAlign': 'left',
                             'marginLeft': '7.5%',
                             'listStyleType': 'none'
                         }}>
-                            <ul>Genres: {show.genre.join(', ')}</ul>
-                            <ul>Number of Episodes: {show.numberOfEpisodes}</ul> 
-                            <ul>Number of Manga Chapters: {show.mangaChapters}</ul>                         
-                        </li>
+                            <li>Genres: {show.genre.join(', ')}</li>
+                            {show.hasEnded === true ? <li>Number of Episodes: {show.numberOfEpisodes}</li> : <li>Ongoing</li>}
+                            
+                            <li>Number of Manga Chapters: {show.mangaChapters}</li>
+                            {show.isDubbed === true ? <li>English Dub: &#9989;</li> : <li>English Dub: &#x274C;</li>} 
+                    <li>The Anime was Released {date - showDate} Years ago in {showDate}</li>         
+                        </ul>
                 
                   <p><a className={classes.Button} onClick={() => history.goBack()} >Return to Previous Page</a></p>
 
@@ -71,5 +81,6 @@ export default function Details() {
     
     }
 }
+
 
 

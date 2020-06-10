@@ -11,19 +11,31 @@ export default () => {
     useEffect(() => {
             fetch(url) 
             .then(response => response.json())
-            .then(shows => setShows(shows))
+                //@ts-ignore
+            .then(shows => setShows(shows.sort(function(a, b){
+                //@ts-ignore
+                if(a.title < b.title) { return -1; }
+                //@ts-ignore
+                if(a.title > b.title) { return 1; }
+                return 0;
+        })))
             .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
     }, []);
-    
+  
     return (
             <div id='shows' className={classes.Shows}>
                 <h1 className={classes.Title}>Animes & Manga (アニメやマンガ)</h1>
+    
                 {
                 shows.length > 0 ?
                     shows.map(show => {
                         return (
  // @ts-ignore
-                            <Cover coverImage={show.coverImage} title={show.title} _id={show._id} />
+                        
+                        <Cover 
+                         // @ts-ignore
+                        coverImage={show.coverImage} title={show.title} _id={show._id} />
+
                         );
                     }) :
                     <Loading />
