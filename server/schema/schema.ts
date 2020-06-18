@@ -1,10 +1,13 @@
 const graphQL = require('graphql');
-// Import the models
 //@ts-ignore
 const Show = require('../models/show.model.ts');
+const graphql = require('graphql');
+import {
+    GraphQLDate,
+    GraphQLTime,
+    GraphQLDateTime
+  } from 'graphql-iso-date';
 
-
-// Import objects from graphql
 const {
     GraphQLObjectType,
     GraphQLString,
@@ -17,12 +20,9 @@ const {
 } = graphQL;
 
 
-
-// Define Book Type
 const ShowType = new GraphQLObjectType({
     name: 'Show',
     fields: () => ({
-        // Fields exposed via query
         _id: {
             type: GraphQLString
         },
@@ -36,7 +36,7 @@ const ShowType = new GraphQLObjectType({
             type: GraphQLString
         },
         genres: {
-            type: GraphQLString
+            type: new graphql.GraphQLList(graphql.GraphQLString)
         },
         frontCoverImage: {
             type: GraphQLString
@@ -51,7 +51,7 @@ const ShowType = new GraphQLObjectType({
             type: GraphQLString
         },
         animeReleaseDate: {
-            type: GraphQLString
+            type: GraphQLDateTime
         },
         numberOfEpisodes: {
             type: GraphQLInt
@@ -68,13 +68,10 @@ const ShowType = new GraphQLObjectType({
     })
 });
 
-// Define Query endpoints available on the GraphQL Server
-// The top-level query object returns a `RootQueryType` object
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
         show: {
-            // book() {} endpoint
             type: ShowType,
             args: {
                 _id: {
@@ -87,7 +84,6 @@ const RootQuery = new GraphQLObjectType({
         },
 
         shows: {
-            // books {} endpoint
             type: new GraphQLList(ShowType),
             resolve(parent, args) {
                 return Show.find({});
@@ -96,8 +92,6 @@ const RootQuery = new GraphQLObjectType({
     }
 });
 
-
-// Export a GraphQL schema with Query and Mutation endpoints
 module.exports = new GraphQLSchema({
     query: RootQuery,
 });

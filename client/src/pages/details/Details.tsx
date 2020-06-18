@@ -1,78 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import Loading from '../../common/loading/Loading';
-// import './Details.css';
 import classes from './Details.module.css';
 import { useParams, useHistory } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 
+
+const GET_SHOW = gql`
+query Show($_id: ID!){
+    show(_id: $_id) {
+    backgroundImage
+    backCoverImage  
+    title
+    author
+    description
+    trailer
+    genres
+    hasEnded
+    numberOfEpisodes
+    mangaChapters
+    isDubbed
+    animeReleaseDate
+    
+    }
+  }
+`;
+
+//@ts-ignore
 export default function Details() {
-    //@ts-ignore
     const { _id } = useParams()
     const history = useHistory()
-    const url = "/shows/";
-    const [show, setShow] = useState(Object)
-    useEffect(() => {
-        fetch(url + _id)
-            .then(response => response.json())
-            .then(show => setShow(show))
-    }, []);
+    const { loading, data } = useQuery(GET_SHOW, {
+        variables:  {_id}  ,
+    });
+      if (loading) return <Loading/>;
+      if (data.show === null) return <Redirect to='not-found'/>;
+        return DetailsContent();
     
-    let today = new Date();
-    let showDay = new Date(show.releaseDate);
-    //@ts-ignore
-    let date= today.getFullYear();
-    //@ts-ignore
-    let showDate= showDay.getFullYear();
-
-
-        return show._id ?
-                <DetailsContent/> :
-                <Loading />;
-        
    
         function DetailsContent( ) {
-            // return (        
-            //     <div style={{
-            //         'backgroundImage': `url(${show.backgroundImage})`
-            //     }}>
-            //         <h1>{show.title}</h1>
-            //         <h1>{show.author}</h1>
-            //         <h1>{show.description}</h1>
-            //         <h1>{show.genre}</h1>
-            //         <h1>{show.releaseDate}</h1>
-            //         <h1>{show.numberOfEpisodes}</h1>
-            //         <h1>{show.movieNames}</h1>
-            //         <h1>{show.isDubbed}</h1>
-            //         <h1>{show.mangaChapters}</h1>
-            //         <h1>{show.hasEnded}</h1>
-            //     </div>
-            // )
+            let today = new Date();
+            let showDay = new Date(data.show.animeReleaseDate);
+            //@ts-ignore
+            let date= today.getFullYear();
+            //@ts-ignore
+            let showDate= showDay.getFullYear();
+
             return (
                 <div className={classes.Container} style={{
-                            'backgroundImage': `url(https://images7.alphacoders.com/677/677266.png)`
+                            'backgroundImage': `url(${data.show.backgroundImage})`
                         }}>
                 <div className={classes.Content}>
-                  <h1>{show.title} by {show.author}</h1>
-                  <p className={classes.Subtitle}><strong>{show.description}</strong></p>
+                  <h1>{data.show.title} by {data.show.author}</h1>
+                  <p className={classes.Subtitle}><strong>{data.show.description}</strong></p>
                   <div className={classes.Video}>
-                    <video controls poster={show.backgroundImage}>
-                    <source src={show.trailer} type="video/mp4"   />
+                    <video controls poster= {data.show.backCoverImage}>
+                    <source src={data.show.trailer} type="video/mp4"   />
                     </video>
                 </div>
-                    <ul style={{
-                            'textAlign': 'left',
-                            'marginLeft': '7.5%',
-                            'listStyleType': 'none'
-                        }}>
-                            <li>Genres: {show.genre.join(', ')}</li>
-                            {show.hasEnded === true ? <li>Number of Episodes: {show.numberOfEpisodes}</li> : <li>Ongoing</li>}
+                    <ul className={classes.List}>
+                            <li>Genres: {data.show.genres.join(', ')}</li>
+                            {data.show.hasEnded === true ? <li>Number of Episodes: {data.show.numberOfEpisodes}</li> : <li>Ongoing</li>}
                             
-                            <li>Number of Manga Chapters: {show.mangaChapters}</li>
-                            {show.isDubbed === true ? <li>English Dub: &#9989;</li> : <li>English Dub: &#x274C;</li>} 
+                            <li>Number of Manga Chapters: {data.show.mangaChapters}</li>
+                            {data.show.isDubbed === true ? <li>English Dub: &#9989;</li> : <li>English Dub: &#x274C;</li>} 
                     <li>The Anime was Released {date - showDate} Years ago in {showDate}</li>         
                         </ul>
                 
-                  <p><a className={classes.Button} onClick={() => history.goBack()} >Return to Previous Page</a></p>
+                  <button className={classes.Button} onClick={() => history.goBack()} >Return to Previous Page</button>
 
                 </div>
                 </div>
