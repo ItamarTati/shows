@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // @ts-ignore
 const Schema = mongoose.Schema
 // @ts-ignore
-const ShowSchema = new Schema ({
+const ShowSchema = new Schema({
     _id: {
         type: String,
         required: true
@@ -24,7 +24,7 @@ const ShowSchema = new Schema ({
         type: Array,
         required: true
     },
-    frontCoverImage:  {
+    frontCoverImage: {
         type: String,
         required: true
     },
@@ -32,11 +32,11 @@ const ShowSchema = new Schema ({
         type: String,
         required: true
     },
-    backgroundImage:  {
+    backgroundImage: {
         type: String,
         required: true
     },
-    trailer:  {
+    trailer: {
         type: String,
         required: true
     },
@@ -56,10 +56,10 @@ const ShowSchema = new Schema ({
         type: Number,
         required: true
     },
-    hasEnded:{
-        type: Boolean, 
-        required: true 
-    }, 
+    hasEnded: {
+        type: Boolean,
+        required: true
+    },
 
 });
 

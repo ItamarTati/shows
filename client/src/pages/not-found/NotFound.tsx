@@ -1,7 +1,28 @@
 import React from 'react';
+import gif from '../../common/page-not-found .gif'
+import { Link } from 'react-router-dom';
+import classes from './NotFound.module.css'
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
     return (
-        <h1>Ooops, it looks like this page doesn't exist :(</h1>
+        <div className={classes.NotFound}>
+            <h1 className={classes.Title}>
+                Ooops, the Anime you are looking for is currently unavailable :(
+            </h1>
+
+            <div>
+                <img className={classes.Image} src={gif} alt='gif' />
+            </div>
+
+            <Link to='/'>
+                <button className={classes.Button}>
+                    Return to HomePage
+                </button>
+            </Link>
+
+        </div>
+
     )
 }
+
+export default NotFound

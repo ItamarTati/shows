@@ -20,14 +20,14 @@ mongoose
     .then(() => {
         const port = process.env.PORT || 4000;
         app.listen(port, () => {
-            console.log(`app is running on port ${port}` );
+            console.log(`app is running on port ${port}`);
         });
     })
     .catch(err => {
         console.log(err);
     });
 
-    app.use('/graphql', expressGraphQL({
-    schema, 
+app.use('/graphql', expressGraphQL({
+    schema,
     graphiql: true
 }));

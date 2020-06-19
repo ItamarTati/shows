@@ -3,10 +3,8 @@ const graphQL = require('graphql');
 const Show = require('../models/show.model.ts');
 const graphql = require('graphql');
 import {
-    GraphQLDate,
-    GraphQLTime,
     GraphQLDateTime
-  } from 'graphql-iso-date';
+} from 'graphql-iso-date';
 
 const {
     GraphQLObjectType,
@@ -15,7 +13,6 @@ const {
     GraphQLID,
     GraphQLInt,
     GraphQLList,
-    GraphQLNonNull,
     GraphQLBoolean
 } = graphQL;
 
