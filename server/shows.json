@@ -1,0 +1,83 @@
+{
+    "shows": [
+        {
+            "_id": "dragonballz",
+            "title": "Dragon Ball Z",
+            "author": "Akira Toriyama",
+            "description": "After learning that he is from another planet, a warrior named Goku and his friends are prompted to defend it from an onslaught of extraterrestrial enemies.",
+            "genres": ["Action", "Adventure", "Fantasy", "Martial Arts","Sci-Fi"],
+            "frontCoverImage": "common/images/front-cover-image/dragonballz.jpg",
+            "backCoverImage": "common/images/back-cover-image/dragonballz.jpg",
+            "backgroundImage": "common/images/background-image/dragonballz.png",
+            "trailer": "https://www.dropbox.com/s/ybgzsup6rnomq85/drgonballz.mp4?raw=1",
+            "animeReleaseDate": "1989-04-26",
+            "numberOfEpisodes": 291,
+            "isDubbed": true,
+            "mangaChapters": 325,
+            "hasEnded": true
+        },
+        {
+            "_id": "onepiece",
+            "title": "One Piece",
+            "author": "Eiichiro Oda",
+            "description": "Follows the adventures of Monkey D. Luffy and his pirate crew in order to find the greatest treasure ever left by the legendary Pirate, Gold Roger. The famous mystery treasure named One Piece.",
+            "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
+            "frontCoverImage": "common/images/front-cover-image/onepiece.jpg",
+            "backCoverImage": "common/images/back-cover-image/onepiece.jpg",
+            "backgroundImage": "common/images/background-image/onepiece.png",
+            "trailer": "https://www.dropbox.com/s/g3zzqa07gwudajk/onepiece.mp4?raw=1",
+            "animeReleaseDate": "1999-10-20",
+            "numberOfEpisodes": 929,
+            "isDubbed": false,
+            "mangaChapters": 1000,
+            "hasEnded": false
+        },
+        {
+            "_id": "therisingoftheshieldhero",
+            "title": "The Rising of the Shield Hero",
+            "author": "	Aneko Yusagi",
+            "description": "Stories of old tell of four otherworldly heroes - wielding the sword, spear, bow, and shield - who defended the land from wave after wave of calamity. With the fate of the world in balance, the kingdom of Melromarc summons these legendary figures.",
+            "genres": [ "Accidental Travel","Action", "Adventure", "Drama", "Fantasy", "Dark fantasy", "Romance", "Video Games"],
+            "frontCoverImage": "common/images/front-cover-image/shieldhero.jpg",
+            "backCoverImage": "common/images/back-cover-image/cowboybebop.jpg",
+            "backgroundImage": "common/images/background-image/cowboybebop.png",
+            "trailer": "https://www.dropbox.com/s/lreeeunsg6wl410/shieldhero.mp4?raw=1",
+            "animeReleaseDate": "2019-01-09",
+            "numberOfEpisodes": 25,
+            "isDubbed": true,
+            "mangaChapters": 22,
+            "hasEnded": false
+        },
+        {
+            "title": "Rurouni Kenshin",
+            "author": "Nobuhiro Watsuki",
+            "description": "The adventures of a young former assassin turned wandering swordsman who stumbles upon a struggling martial arts school in Meiji era Japan.",
+            "genre": ["Action","Adventure", "Martial Arts", "Romance", "History"],
+            "coverImage": "https://www.dropbox.com/s/d0tkh4mbve5byyt/rurounikenshincover.jpg?raw=1",
+            "backgroundImage": "https://www.dropbox.com/s/yz74sn9o6ki98u7/rurounikenshinbackgroundcover.jpg?raw=1",
+            "trailer": "https://www.dropbox.com/s/11f9wmheh2nqdx2/Rurouni%20Kenshin.mp4?raw=1",
+            "releaseDate": "1996-01-10",
+            "numberOfEpisodes": 95,
+            "movieNames": ["Rurouni Kenshin: The Motion Picture", "Rurouni Kenshin: New Kyoto Arc: The Cage of Flames", "Rurouni Kenshin: New Kyoto Arc: The Chirps of Light", "Rurouni Kenshin: Trust & Betrayal", "Rurouni Kenshin: Reflection"],
+            "isDubbed": true,
+            "mangaChapters": 28,
+            "hasEnded": true
+        },
+        {
+            "title": "Yu Yu Hakusho",
+            "author": "Yoshihiro Togashi",
+            "description": "A delinquent teenager is killed in a car accident, and is resurrected as an investigator of the supernatural.",
+            "genre": ["Action","Adventure", "Martial Arts", "Romance", "Supernatural"],
+            "coverImage": "https://www.dropbox.com/s/i8pj5m9gsolhvjm/yuyuhakushocover.jpeg?raw=1",
+            "backgroundImage": "https://www.dropbox.com/s/1yt1t5kg9j1x9t6/yuyuhakushobackground.jpg?raw=1",
+            "trailer": "https://www.dropbox.com/s/ja92f25l1zr3494/Yu%20Yu%20Hakusho%20Opening%20-%20Smile%20Bomb%20%28RESTORED%20IN%204K%20USING%20AI-MACHINE%20LEARNING%29.mp4?raw=1",
+            "releaseDate": "1992-10-10",
+            "numberOfEpisodes": 112,
+            "movieNames": ["Yu Yu Hakusho: The Movie", "Yu Yu Hakusho the Movie: Poltergeist Report"],
+            "isDubbed": true,
+            "mangaChapters": 19,
+            "hasEnded": true
+        }
+
+    ]
+}
