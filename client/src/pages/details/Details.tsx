@@ -61,7 +61,7 @@ export default function Details() {
             <li>Genres: {data.show.genres.join(', ')}</li>
             {data.show.hasEnded === true ? <li>Number of Episodes: {data.show.numberOfEpisodes}</li> : <li>Number of Episodes: Ongoing with {data.show.numberOfEpisodes} Episodes</li>}
 
-            <li>Number of Manga Chapters: {data.show.mangaChapters}</li>
+            <li>Number of Manga Volumes: {data.show.mangaChapters}</li>
             {data.show.isDubbed === true ? <li>English Dub: &#9989;</li> : <li>English Dub: &#x274C;</li>}
             <li>The Anime was Released {date - showDate} Years ago in {showDate}</li>
           </ul>
