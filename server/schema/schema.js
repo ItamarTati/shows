@@ -1,7 +1,6 @@
 const { GraphQLDateTime } = require('graphql-iso-date')
 const graphQL = require('graphql');
-//@ts-ignore
-const Show = require('../models/show.model.ts');
+const Show = require('../models/show.model.js');
 const graphql = require('graphql');
 
 

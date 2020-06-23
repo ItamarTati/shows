@@ -1,8 +1,5 @@
-// @ts-ignore
 const mongoose = require('mongoose');
-// @ts-ignore
 const Schema = mongoose.Schema
-// @ts-ignore
 const ShowSchema = new Schema({
     _id: {
         type: String,

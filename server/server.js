@@ -1,6 +1,5 @@
 const express = require('express');
 const expressGraphQL = require('express-graphql');
-//@ts-ignore
 const mongoose = require('mongoose');
 const cors = require('cors');
 const schema = require('./schema/schema.ts');
@@ -9,7 +8,6 @@ app.use(cors());
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
-        // @ts-ignore
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
