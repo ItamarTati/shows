@@ -1,10 +1,9 @@
+const { GraphQLDateTime } = require('graphql-iso-date')
 const graphQL = require('graphql');
 //@ts-ignore
 const Show = require('../models/show.model.ts');
 const graphql = require('graphql');
-import {
-    GraphQLDateTime
-} from 'graphql-iso-date';
+
 
 const {
     GraphQLObjectType,
