@@ -55,6 +55,5 @@
   "devDependencies": {
     "@babel/node": "^7.10.1"
   },
-    "type": "module"
-  
+  "type": "module"
 }
