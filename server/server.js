@@ -13,21 +13,25 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
-let url = process.env.mongodb || `mongodb+srv://itamar:rKw6JQ12Cw5fvaSy@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`
 
-mongoose
-    .connect(
-        url 
-    )
-    .then(() => {
-        const port = process.env.PORT || 4000;
-        app.listen(port, () => {
-            console.log(`app is running on port ${port}`);
-        });
-    })
-    .catch(err => {
-        console.log(err);
-    });
+const uri = process.env.mongodb || `mongodb+srv://itamar:rKw6JQ12Cw5fvaSy@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`;
+mongoose.connect(uri,
+{
+    useNewUrlParser: true,
+    useFindAndModify: false
+},(err)=>{
+    if(err){
+        process.exit(1);
+        console.log('unable to connect to database');
+    }
+    else
+        console.log('successfully connected to the database');
+});
+
+const port = process.env.PORT || 4000;
+app.listen(port,()=>{
+    console.log('app is running');
+});
 
 app.use('/graphql', expressGraphQL({
     schema,
