@@ -5,14 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd server && node server.js",
+    "start": "node server",
     "client": "cd client && npm run start",
-    "server": "cd server && nodemon server.js --ignore client/",
-    "client-install": "cd client && npm install",
-    "server-install": "npm install",
+    "server": "nodemon server --ignore client/",
+    "client-install":"cd client && npm install",
+    "server-install":"npm install",
     "install-all": "concurrently \"npm run client-install\" \"npm run server-install\"",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "dev" : "concurrently \"npm run client\" \"npm run server\"",
+    "heroku-postbuild" : "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
