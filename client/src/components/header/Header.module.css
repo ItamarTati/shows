@@ -13,6 +13,11 @@
     object-fit: cover;
     background-color: rgba(0, 0, 0, 0.3);
   }
+  @media only screen and (max-width: 425px) {
+    .Video {
+      display: none;
+    }
+  }
   
   .Content {
     position: absolute;
