@@ -1,21 +1,27 @@
 .Container {
     position: relative;
-    min-height: 300px;
-    min-height: 1000px;
+    height: 1000px;
     overflow: hidden;
-    background-color: #00000000;
+    background-color: #000000;
 
+}
+@media only screen and (max-width: 425px) {
+  .Container {
+    height: 600px;
+  }
 }
 
 .Video {
     width: 100%;
     height: 1000px;
     object-fit: cover;
+    display: none;
     background-color: rgba(0, 0, 0, 0.3);
   }
   @media only screen and (max-width: 425px) {
     .Video {
       display: none;
+      height: 600px;
     }
   }
   
@@ -42,7 +48,7 @@
       margin: 0;
     }
   .SubContent p {
-      color: #eeeeeead;
+      color: #f1f1f1;
       font-size: 1.3rem;
   }
   .SubContent button {
