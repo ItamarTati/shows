@@ -29,11 +29,11 @@ query Show($_id: ID!){
 
 export default function Details() {
   const { _id } = useParams()
-  const { loading, data } = useQuery(GET_SHOW, {
+  const { loading, data, error } = useQuery(GET_SHOW, {
     variables: { _id },
   });
   if (loading) return <Loading />;
-  if (data.show === null) return <Redirect to='not-found' />;
+  if (error) return <Redirect to='not-found' />;
   return DetailsContent();
 
 
