@@ -5,7 +5,16 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color:#ffffff;
+    background-color:#000000;
+  }
+  @media only screen and (max-width: 425px) {
+    .Container {
+      height: 100%;
+      background-size: cover;
+      background-attachment: unset;
+
+
+    }
   }
   
   .Content {
@@ -17,7 +26,6 @@
     text-shadow: 2px 2px 4px #000000;
   }
   
-  /* Special */
   .Subtitle {
     font-size: 18px;
     line-height: 23px;
@@ -40,8 +48,6 @@
     background-color: #000000c0;
     color: #f1f1f1;
 }
-/* background-color: #000000c0;
-color: #f1f1f1; */
 
   .Video video{    
     text-align:center;
@@ -51,9 +57,20 @@ color: #f1f1f1; */
     margin: 0;
     padding: 0;
   }
+  @media only screen and (max-width: 425px) {
+    .Video video {
+      height: 40%;
+    }
+  }
+  
 
   .Video video[poster]{
     object-fit: fill;
 
 
     }
+    .List{
+      text-align: left;
+      margin-left: 7.5%;
+      list-style-type: none;
+  }
