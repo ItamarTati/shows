@@ -55,6 +55,9 @@
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {
     "@babel/node": "^7.10.1"
   }
