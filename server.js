@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-console.log(process.env.MONGODB_PASSWORD)
 const uri = process.env.mongodb || `mongodb+srv://itamar:${process.env.MONGODB_PASSWORD}@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`;
 
 mongoose.connect(uri,
