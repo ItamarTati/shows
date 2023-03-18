@@ -1,20 +1,20 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "package.json", 
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ], 
-    "build": {
-      "env": {
-        "NODE_OPTIONS": "--openssl-legacy-provider"
-      }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--openssl-config=/path/to/openssl.cnf"
     }
   }
+}
