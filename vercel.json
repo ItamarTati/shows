@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ],
-  "build": {
-    "env": {
-      "NODE_OPTIONS": "--openssl-config=/path/to/openssl.cnf"
-    }
-  }
+  ]
 }
