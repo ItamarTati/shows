@@ -3,7 +3,7 @@
     "builds": [
       {
         "src": "package.json", 
-        "use": "14.17.5" 
+        "use": "node@14.17.5" 
       }
     ],
     "routes": [
