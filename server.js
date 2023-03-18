@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const schema = require('./schema/schema.js');
 const app = express();
+require('dotenv').config();
+
+
 
 
 app.use(cors());
@@ -14,15 +17,18 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const uri = process.env.mongodb || `mongodb+srv://itamar:rKw6JQ12Cw5fvaSy@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`;
+console.log(process.env.MONGODB_PASSWORD)
+const uri = process.env.mongodb || `mongodb+srv://itamar:${process.env.MONGODB_PASSWORD}@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`;
+
 mongoose.connect(uri,
 {
     useNewUrlParser: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true 
 },(err)=>{
     if(err){
+        console.log(err);
         process.exit(1);
-        console.log('unable to connect to database');
     }
     else
         console.log('successfully connected to the database');
