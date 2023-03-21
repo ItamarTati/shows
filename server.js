@@ -109,7 +109,7 @@ app.listen(port, () => {
   console.log("app is running");
 });
 
-app.get("/shows", async (req, res, next) => {
+app.get("/api/shows", async (req, res, next) => {
   try {
     const page = parseInt(req.query.page) - 1 || 0;
     const limit = parseInt(req.query.limit) || 4;
@@ -183,10 +183,15 @@ app.get("/shows", async (req, res, next) => {
   }
 });
 
-app.get("/shows/:id", async (req, res) => {
+app.get("/api/shows/:id", async (req, res) => {
   try {
     const data = await animeModel.findById(req.params.id);
+    if(data) {
     res.json(data);
+  }
+  else {
+    res.status(404).json("Anime ID not found")
+  }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

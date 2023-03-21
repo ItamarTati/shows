@@ -13,7 +13,7 @@ export default function Details() {
   useEffect(() => {
     const fetchShow = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/shows/${_id}`);
+        const response = await fetch(`/api/shows/${_id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch show');
         }
@@ -32,7 +32,7 @@ export default function Details() {
   if (error) return <Navigate to='not-found' />;
 
   return (
-    <div className={classes.Container} style={{ backgroundImage: `url(http://localhost:5173/src/${show?.backgroundImage})` }}>
+    <div className={classes.Container} style={{ backgroundImage: `url(/src/${show?.backgroundImage})` }}>
       <div className={classes.Content}>
         <h1>
           {show?.title} by {show?.author}
@@ -41,7 +41,7 @@ export default function Details() {
           <strong>{show?.description}</strong>
         </p>
         <div className={classes.Video}>
-          <video controls poster={`http://localhost:5173/src/${show?.backCoverImage}`}>
+          <video controls poster={`/src/${show?.backCoverImage}`}>
             <source src={show?.trailer} type='video/mp4' />
           </video>
         </div>

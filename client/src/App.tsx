@@ -10,8 +10,8 @@ const App: React.FC = () => {
       <div className="App">
         <Routes>
           <Route path="/" element={<Shows />} />
-          <Route path="/shows/:_id" element={<Detail />} />
           <Route path="not-found" element={<PageNotFound />} />
+          <Route path="/anime/:_id" element={<Detail />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>

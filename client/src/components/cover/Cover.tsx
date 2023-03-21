@@ -11,8 +11,6 @@ interface Props {
 
 const Cover: React.FC<Props> = (props) => {
     const { title, frontCoverImage, _id } = props;
-    console.log(_id)
-
     return (
         <Link to={`/shows/${_id}`} className={classes.Cover}>
             <img src={`/src/${frontCoverImage}`} alt={title} />
