@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "preview": "vite preview",  
+    "preview": "vite preview",
     "vercel-build": "vite build"
   },
   "dependencies": {
