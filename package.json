@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
+    "start": "babel-node server.js",
+    "build": "npm run server-install && npm run client && npm run build",
     "client": "cd client && npm run start",
     "server": "nodemon server --ignore client/",
     "client-install": "cd client && npm install",
     "server-install": "npm install",
     "install-all": "concurrently \"npm run client-install\" \"npm run server-install\"",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
@@ -32,7 +32,7 @@
     "nodemon": "^2.0.21"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "devDependencies": {
     "@babel/node": "^7.10.1"
