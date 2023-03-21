@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config();
 
 app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "default-src 'self' https://shows-beta.vercel.app/;"); // add your own domain or specific domains here
+  res.setHeader('Content-Security-Policy', "default-src 'self' https://shows-beta.vercel.app/; data"); // add your own domain or specific domains here
   next();
 });
 
