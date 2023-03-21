@@ -7,21 +7,6 @@ const helmet = require('helmet');
 const path = require('path');
 const { logger } = require('@vercel/node');
 
-
-const server = createServer((req, res) => {
-  const { pathname } = parse(req.url);
-
-  if (pathname === '/api/shows') {
-    logger.info('Request received for:', req.url);
-    // ... handle the request ...
-  } else {
-    send(res, 404, 'Not Found');
-  }
-});
-
-server.listen()
-
-
 app.use(helmet());
 
 app.use((req, res, next) => {
@@ -125,6 +110,7 @@ app.listen(port, () => {
 });
 
 app.get("/api/shows", async (req, res, next) => {
+  logger.info('Request received for:', req.url);
   try {
     const page = parseInt(req.query.page) - 1 || 0;
     const limit = parseInt(req.query.limit) || 4;
