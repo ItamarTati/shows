@@ -7,17 +7,12 @@ const helmet = require('helmet');
 const path = require('path');
 
 
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "https://shows-beta.vercel.app/"],
-    styleSrc: ["'self'", "https://shows-beta.vercel.app/"],
-    imgSrc: ["'self'", "https://shows-beta.vercel.app/"],
-    fontSrc: ["'self'", "https://shows-beta.vercel.app/"],
-    objectSrc: ["'none'"],
-    upgradeInsecureRequests: [],
-  },
-}));
+app.use(helmet());
+
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self'; style-src 'self' https://shows-beta.vercel.app/ 'unsafe-inline'; script-src 'self' https://shows-beta.vercel.app/");
+  next();
+});
 
 app.use(cors());
 if (process.env.NODE_ENV === "production") {
