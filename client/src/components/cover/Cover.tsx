@@ -15,7 +15,7 @@ const Cover: React.FC<Props> = (props) => {
 
     return (
         <Link to={`/shows/${_id}`} className={classes.Cover}>
-            <img src={`http://localhost:5173/src/${frontCoverImage}`} alt={title} />
+            <img src={`/src/${frontCoverImage}`} alt={title} />
         </Link>
     );
 }

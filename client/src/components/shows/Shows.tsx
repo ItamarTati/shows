@@ -80,7 +80,7 @@ const Shows: React.FC = () => {
     const limitParam = `&limit=${limit}`;
     const sortParam = `&sort=${sortField}:${sortOrder}`;
     fetch(
-      `http://localhost:4000/shows${pageParam}${genresParam}${searchParam}${limitParam}${sortParam}`
+      `/shows${pageParam}${genresParam}${searchParam}${limitParam}${sortParam}`
     )
       .then((response) => response.json())
       .then((data) => {
