@@ -9,7 +9,7 @@
     "build": "npm run server-install && npm run client && npm run build",
     "client": "cd client && npm run start",
     "server": "nodemon server --ignore client/",
-    "client-install": "cd client && npm install --legacy-peer-deps",
+    "client-install": "cd client && npm install",
     "server-install": "npm install"
   },
   "repository": {
