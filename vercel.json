@@ -31,10 +31,5 @@
   "env": {
     "MONGODB_URI": "@mongodb-uri",
     "JWT_SECRET": "@jwt-secret"
-  },
-  "functions": {
-    "api": {
-      "memory": 512
-    }
   }
 }
