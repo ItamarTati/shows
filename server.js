@@ -3,11 +3,20 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 require("dotenv").config();
+const helmet = require('helmet');
 
-app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "default-src 'self' https://shows-beta.vercel.app/; data"); // add your own domain or specific domains here
-  next();
-});
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "https://shows-beta.vercel.app/"],
+    styleSrc: ["'self'", "https://shows-beta.vercel.app/"],
+    imgSrc: ["'self'", "https://shows-beta.vercel.app/"],
+    fontSrc: ["'self'", "https://shows-beta.vercel.app/"],
+    objectSrc: ["'none'"],
+    upgradeInsecureRequests: [],
+  },
+}));
 
 app.use(cors());
 if (process.env.NODE_ENV === "production") {
