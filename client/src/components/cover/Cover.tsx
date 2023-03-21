@@ -12,7 +12,7 @@ interface Props {
 const Cover: React.FC<Props> = (props) => {
     const { title, frontCoverImage, _id } = props;
     return (
-        <Link to={`/shows/${_id}`} className={classes.Cover}>
+        <Link to={`/anime/${_id}`} className={classes.Cover}>
             <img src={`/src/${frontCoverImage}`} alt={title} />
         </Link>
     );

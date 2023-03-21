@@ -235,7 +235,7 @@ const Shows: React.FC = () => {
         </Button>
         {data?.listOfAnimeIds && data?.listOfAnimeIds.length > 1 ? (
           <Link
-            to={`/shows/${
+            to={`/anime/${
               data?.listOfAnimeIds[Math.floor(Math.random() * data?.listOfAnimeIds.length)]
             }`}
           >
