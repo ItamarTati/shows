@@ -11,8 +11,8 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Shows />} />
           <Route path="/shows/:_id" element={<Detail />} />
-          {/* <Route path="not-found" element={<PageNotFound />} />
-          <Route path="*" element={<PageNotFound />} /> */}
+          <Route path="not-found" element={<PageNotFound />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

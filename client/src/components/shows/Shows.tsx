@@ -1,24 +1,17 @@
 import React, {
   useState,
   useEffect,
-  MouseEventHandler,
-  SetStateAction,
+  SetStateAction
 } from "react";
 import Cover from "../cover/Cover";
 import Loading from "../../common/loading/Loading";
 import classes from "./Shows.module.css";
 import Header from "../../components/header/Header";
-//@ts-ignore
 import { Pagination } from "@mui/material";
-//@ts-ignore
 import TextField from "@mui/material/TextField";
-//@ts-ignore
 import Box from "@mui/material/Box";
-//@ts-ignore
 import Button from "@mui/material/Button";
-//@ts-ignore
 import Typography from "@mui/material/Typography";
-//@ts-ignore
 import Modal from "@mui/material/Modal";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -204,24 +197,33 @@ const Shows: React.FC = () => {
           </div>
         </div>
       )}
-      <div className={classes.Pagination}>
-        <Pagination
-          count={data?.numberOfPages}
-          showFirstButton
-          showLastButton
-          size="large"
-          variant="outlined"
-          color="secondary"
-          onChange={handlePageChange}
-        />
-      </div>
-      <div className={classes.Search}>
+
+  <div className={classes.Pagination}>
+    {loading ? (
+      ''
+    ) : (
+      <Pagination
+        count={data?.numberOfPages}
+        showFirstButton
+        showLastButton
+        size="large"
+        variant="outlined"
+        color="secondary"
+        onChange={handlePageChange}
+      />
+    )}
+  </div>
+  <div className={classes.Search}>
+    {loading ? (
+      ''
+    ) : (
+      <>
         <Button
           sx={{
             backgroundColor: "white",
             color: "black",
             border: "1px solid #000",
-            marginRight: '10px',
+            marginRight: "10px",
             "&:hover": {
               backgroundColor: "black",
               color: "white",
@@ -231,14 +233,18 @@ const Shows: React.FC = () => {
         >
           Advance Search Settings
         </Button>
-        {data?.listOfAnimeIds && data?.listOfAnimeIds.length > 1 ?
-          <Link to={`/shows/${data?.listOfAnimeIds[Math.floor(Math.random() * data?.listOfAnimeIds.length)]}`} >
+        {data?.listOfAnimeIds && data?.listOfAnimeIds.length > 1 ? (
+          <Link
+            to={`/shows/${
+              data?.listOfAnimeIds[Math.floor(Math.random() * data?.listOfAnimeIds.length)]
+            }`}
+          >
             <Button
               sx={{
                 backgroundColor: "white",
                 color: "black",
                 border: "1px solid #000",
-                marginLeft: '10px',
+                marginLeft: "10px",
                 "&:hover": {
                   backgroundColor: "red",
                   color: "white",
@@ -247,8 +253,14 @@ const Shows: React.FC = () => {
             >
               Select Random Anime Adventure
             </Button>
-          </Link> : ''
-        }
+          </Link>
+        ) : (
+          ""
+        )}
+      </>
+    )}
+  </div>
+
         <Modal
           open={open}
           onClose={handleClose}
@@ -393,7 +405,6 @@ const Shows: React.FC = () => {
           </Box>
         </Modal>
       </div>
-    </div>
   );
 };
 
