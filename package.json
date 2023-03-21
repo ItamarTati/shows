@@ -11,7 +11,7 @@
     "server": "nodemon server --ignore client/",
     "client-install": "cd client && npm install",
     "server-install": "npm install",
-    "install-all": "concurrently \"npm run client-install --legacy-peer-deps\" \"npm run server-install\"",
+    "install-all": "concurrently \"npm run client-install\" \"npm run server-install\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
