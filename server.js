@@ -10,7 +10,7 @@ const path = require('path');
 app.use(helmet());
 
 app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "style-src 'self'; script-src 'self' https://shows-beta.vercel.app/");
+  res.setHeader('Content-Security-Policy', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://shows-beta.vercel.app/");
   next();
 });
 
