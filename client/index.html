@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Picker</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+    }
+
+    #Loading {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #Loader {
+      border: 16px solid #272c36;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="Loading">
+    <div id="Loader"></div>
+    <p>Loading can take up 2 minutes because this website is using free hosting services</p>
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    const root = document.getElementById("root");
+    const loading = document.getElementById("Loading");
+    window.addEventListener("load", () => {
+      root.style.display = "block";
+      loading.style.display = "none";
+    });
+  </script>
+</body>
+
+</html>
