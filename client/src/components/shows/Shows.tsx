@@ -8,11 +8,17 @@ import Cover from "../cover/Cover";
 import Loading from "../../common/loading/Loading";
 import classes from "./Shows.module.css";
 import Header from "../../components/header/Header";
+//@ts-ignore
 import { Pagination } from "@mui/material";
+//@ts-ignore
 import TextField from "@mui/material/TextField";
+//@ts-ignore
 import Box from "@mui/material/Box";
+//@ts-ignore
 import Button from "@mui/material/Button";
+//@ts-ignore
 import Typography from "@mui/material/Typography";
+//@ts-ignore
 import Modal from "@mui/material/Modal";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
