@@ -9,4 +9,13 @@ export default defineConfig({
       external: ['react-dom/client'],
     },
   },
+  server: {
+    proxy: {
+      '/shows': {
+        target: 'http://localhost:4000',
+        changeOrigin: true
+      }
+    }
+  }
 });
+
