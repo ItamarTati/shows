@@ -29,7 +29,8 @@
     "express": "^4.18.2",
     "helmet": "^6.0.1",
     "mongoose": "^7.0.2",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "typescript": "^5.0.2"
   },
   "engines": {
     "node": "18.x"
