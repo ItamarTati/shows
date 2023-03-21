@@ -4,6 +4,11 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self' https://shows-beta.vercel.app/;"); // add your own domain or specific domains here
+  next();
+});
+
 app.use(cors());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
