@@ -5,7 +5,6 @@ const app = express();
 require("dotenv").config();
 const helmet = require('helmet');
 const path = require('path');
-const { vercel } = require('@vercel/node');
 
 app.use(helmet());
 
@@ -111,12 +110,6 @@ app.listen(port, () => {
 
 app.get("/api/shows", async (req, res, next) => {
   try {
-
-
-    const logger = createLogger(req, res);
-    logger.info(`${process.env.PORT}`)
-    logger.info(`${req.url}`)
-
     const page = parseInt(req.query.page) - 1 || 0;
     const limit = parseInt(req.query.limit) || 4;
     const search = req.query.search || "";
