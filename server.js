@@ -9,17 +9,11 @@ const path = require('path');
 app.use(helmet());
 
 app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://shows-beta.vercel.app/");
+  res.setHeader('Content-Security-Policy', "default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://anime-picker.vercel.app/");
   next();
 });
 
 app.use(cors());
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/client/dist"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "client", "dist", "index.html"));
-  });
-}
 
 const Schema = mongoose.Schema;
 
