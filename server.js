@@ -5,6 +5,13 @@ const app = express();
 require("dotenv").config();
 const helmet = require('helmet');
 const path = require('path');
+const httpProxy = require('http-proxy')
+
+
+const proxy = httpProxy.createProxyServer({
+  target: 'http://localhost:5173',
+})
+
 
 app.use(helmet());
 
