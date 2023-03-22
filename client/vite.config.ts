@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/shows': {
-        target: 'https://anime-picker.vercel.app',
+        target: 'http://localhost:4000',
         changeOrigin: true
       }
     }
