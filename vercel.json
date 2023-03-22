@@ -1,0 +1,31 @@
+{
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "client",
+        "buildCommand": "npm run build",
+        "devCommand": "npm run dev",
+        "outputDirectory": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "client/dist/$1",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      }
+    }
+  ]
+}
