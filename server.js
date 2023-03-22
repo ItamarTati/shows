@@ -103,7 +103,7 @@ mongoose
     console.log(`Error connecting to database: ${error.message}`);
   });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log("app is running");
 });
