@@ -85,6 +85,9 @@ const allAnimesModel = mongoose.model("shows", allAnimesSchema);
 const mongoDBPassword = process.env.MONGODB_PASSWORD;
 const uri = `mongodb+srv://itamar:${mongoDBPassword}@cluster0-qxyeq.mongodb.net/data?retryWrites=true&w=majority`;
 
+const port = process.env.PORT || 4000;
+
+
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
@@ -92,15 +95,15 @@ mongoose
   })
   .then(() => {
     console.log("Connected to database");
+    app.listen(port, () => {
+      console.log("app is running");
+    });
   })
   .catch((error) => {
     console.log(`Error connecting to database: ${error.message}`);
   });
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-  console.log("app is running");
-});
+
 
 app.get("/api/shows", async (req, res, next) => {
   try {
