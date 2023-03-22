@@ -15,19 +15,6 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/dist/$1",
-      "headers": {
-        "cache-control": "s-maxage=31536000,immutable"
-      }
-    }
-  ],
   "rewrites": [
     {
       "source": "/api/shows",
@@ -36,6 +23,10 @@
     {
       "source": "/api/shows/:id",
       "destination": "http://localhost:4000/api/shows/:id"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/client/dist/$1"
     }
   ]
 }
