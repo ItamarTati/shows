@@ -31,7 +31,6 @@ The server provides the following RESTful API endpoints:
 -- page: Page number (default: 1)
 - GET /api/shows/:id: Get an anime show by ID
 
-For more information about the API endpoints, please refer to the [API documentation](API.md).
 
 ## Contributing
 
