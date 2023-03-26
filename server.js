@@ -4,7 +4,6 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const helmet = require('helmet');
-const path = require('path');
 
 app.use(helmet());
 
